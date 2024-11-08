@@ -1,0 +1,22 @@
+{
+    "$schema": "https://github.com/argv-minus-one/dmg-license/raw/master/schema.json",
+    "body": [
+      {
+        "lang": "zh-CN",
+        "type": "plain",
+        "text": "请仔细阅读以下许可协议。如果您同意这些条款，请点击“同意”继续。如果您不同意，请点击“不同意”退出。"
+      }
+    ],
+    "labels": [
+      {
+        "lang": "zh-CN",
+        "languageName": "中文",
+        "agree": "同意",
+        "disagree": "不同意",
+        "print": "打印",
+        "save": "存储...",
+        "message": "如果您同意本许可协议的条款，请按“同意”来安装此软件。如果您不同意，请按“不同意”。"
+      }
+    ],
+    "defaultLang": "zh-CN"
+  }

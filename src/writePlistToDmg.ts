@@ -3,19 +3,23 @@ import * as Plist from "plist";
 import { PlistValue } from "plist";
 import { Writable } from "stream";
 
+// 写入 Plist 数据到指定的可写流
 function writePlist(plist: PlistValue, to: Writable): Promise<void> {
-	return new Promise((resolve, reject) => {
-		const pls = Plist.build(plist);
-		to.write(pls, "UTF-8", error => {
-			if (error)
-				reject(error);
-			else
-				to.end(resolve);
-		});
-	});
+  return new Promise((resolve, reject) => {
+    const pls = Plist.build(plist);
+    console.log("Generated XML content:", pls); // 打印 XML 内容进行调试
+
+    to.write(pls, "UTF-8", (error) => {
+      if (error) {
+        reject(error);
+      } else {
+        to.end(() => resolve());
+      }
+    });
+  });
 }
 
-export default async function writePlistToDmg(imagePath: string, plist: PlistValue): Promise<void> {
+export default async function writePlistToDmg2(imagePath: string, plist: PlistValue): Promise<void> {
 	const child = ChildProcesses.spawn("hdiutil", ["udifrez", "-xml", "/dev/fd/3", imagePath, imagePath], {
 		stdio: ["inherit", "ignore", "inherit", "pipe"]
 	});
